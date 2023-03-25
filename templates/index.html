@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+                                    {% include 'alerts2.html' %}
+
+                                      <script>
+                                          setTimeout(function(){
+                                            if ($('#message').length > 0){
+                                              $('#message').remove();
+                                              }
+                                            },3000)
+
+                                          </script>
+
+
+        <!--====== App Content ======-->
+        <div class="app-content">
+
+            <!--====== Anti Flash White Background ======-->
+            <div class="bg-anti-flash-white">
+
+                <!--====== White Container ======-->
+                <div class="white-container">
+                    <div class="container">
+
+
+                    </div>
+
+                    <!--====== Section 1 ======-->
+
+
+                    <!--====== Electronic Category ======-->
+                    <div class="u-s-p-y-60" id="electronic-01">
+
+                        <!--====== Section Intro ======-->
+                        <!--====== End - Section Intro ======-->
+
+
+                        <!--====== Section Content ======-->
+                        <!--====== End - Section Content ======-->
+                    </div>
+
+                    <!--====== Electronic Category ======-->
+                    <!--====== End - Section 1 ======-->
+
+
+                    <!--====== Section 2 ======-->
+
+
+                    <!--====== Electronics Tab ======-->
+                    <div class="u-s-p-b-60">
+
+                        <!--====== Section Intro ======-->
+                        <!--====== End - Section Intro ======-->
+
+
+                        <!--====== Section Content ======-->
+                        <div class="section__content">
+                            <div class="container">
+                                <div class="tab-content">
+
+
+
+                                                                        <!--====== Tab 2 ======-->
+                                    <!--====== End - Tab 2 ======-->
+
+                                    <!--====== Tab 1 ======-->
+                                    <!--====== End - Tab 1 ======-->
+
+
+
+
+
+                                    <!--====== End - Tab 4 ======-->
+                                </div>
+                            </div>
+                        </div>
+                        <!--====== End - Section Content ======-->
+                    </div>
+                    <!--====== End - Electronics Tab ======-->
+                    <!--====== End - Section 2 ======-->
+
+
+                    <!--====== Section 10 ======-->
+                    <div class="u-s-p-b-60">
+
+                        <!--====== Section Content ======-->
+                        <div class="section__content">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-6 u-s-m-b-30">
+                                        <div class="service u-h-100">
+                                            <div class="service__icon">
+<!--                                                <i class="fas fa-truck"></i>-->
+                                            </div>
+                                            <div class="service__info-wrap">
+
+<!--                                                <span class="service__info-text-1">Free Renting Platform</span>-->
+
+<!--                                                <span class="service__info-text-2">Free Renting your products</span>-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 u-s-m-b-30">
+                                        <div class="service u-h-100">
+                                            <div class="service__icon"><i class="fas fa-redo"></i></div>
+                                            <div class="service__info-wrap">
+
+                                                <a href="{% url 'details' %}"> <span class="service__info-text-1">FILL THE APPLICATION FORM</span></a>
+
+<!--                                                <span class="service__info-text-2">Rent your required products</span>-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 u-s-m-b-30">
+                                        <div class="service u-h-100">
+                                            <div class="service__icon">
+<!--                                                <i class="fas fa-headphones-alt"></i>-->
+                                            </div>
+                                            <div class="service__info-wrap">
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--====== End - Section Content ======-->
+                    </div>
+                    <!--====== End - Section 10 ======-->
+                </div>
+                <!--====== End - White Container ======-->
+            </div>
+            <!--====== End - Anti Flash White Background ======-->
+        </div>
+        <!--====== End - App Content ======-->
+{% endblock %}

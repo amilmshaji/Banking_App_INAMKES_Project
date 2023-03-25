@@ -1,0 +1,394 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+        <!--====== App Content ======-->
+        <div class="app-content">
+
+            <!--====== Section 1 ======-->
+            <div class="u-s-p-y-60">
+
+                <!--====== Section Content ======-->
+                <div class="section__content">
+                    <div class="container">
+                        <div class="breadcrumb">
+                            <div class="breadcrumb__wrap">
+                                <ul class="breadcrumb__list">
+                                    <li class="has-separator">
+
+                                        <a href="#">Home</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--====== End - Section 1 ======-->
+                                                <script>
+                 function validate()
+                {
+					var a=document.getElementById("type").value;
+					   if(a=="")
+                {
+                    document.getElementById('te').style.display = "block";
+
+                    document.getElementById('te').innerHTML="**Please Enter  name";
+                    return false;
+                }
+                else{
+						document.getElementById('te').style.display = "none";
+
+					}
+						var b=document.getElementById("furnish").value;
+					   if(b=="")
+                {
+                    document.getElementById('fh').style.display = "block";
+
+                    document.getElementById('fh').innerHTML="**please Choose";
+                    return false;
+                }
+                else{
+						document.getElementById('fh').style.display = "none";
+
+					}
+
+
+
+					var h = document.getElementById("age").value;
+            var expr = /^[1-9][0-9]*$/;
+
+				if(h=="")
+                {
+                    document.getElementById('ag').style.display = "block";
+
+                    document.getElementById('ag').innerHTML="**Please Enter age";
+                    return false;
+                }
+					else if(h!="" && expr.test(h)==false){
+						document.getElementById('ag').style.display = "block";
+						document.getElementById('ag').innerHTML = "**Invalid Input";
+						return false;
+								}
+								else{
+						document.getElementById('ag').style.display = "none";
+
+					}
+							var a=document.getElementById("email").value;
+					var st=/^[\w\+\'\.-]+@[\w\'\.-]+\.[a-zA-Z]{2,}$/;
+					if(a=="")
+                {
+                    document.getElementById('el').style.display = "block";
+
+                    document.getElementById('el').innerHTML="**Please Enter  Email";
+                    return false;
+                }
+					if(a!="" && st.test(a)==false){
+
+						document.getElementById('el').style.display = "block";
+						document.getElementById('el').innerHTML = "Invalid Email id";
+						return false;
+					}
+					else{
+						document.getElementById('el').style.display = "none";
+					}
+
+					var ph = document.getElementById("tel").value;
+					var expr = /^[6-9]\d{9}$/;
+                    if(ph=="")
+                {
+                    document.getElementById('pe').style.display = "block";
+
+                    document.getElementById('pe').innerHTML="**Please Enter  Phone Number";
+                    return false;
+                }
+					if(ph!="" && expr.test(ph)==false){
+						document.getElementById('pe').style.display = "block";
+						document.getElementById('pe').innerHTML = "Invalid Phone number";
+						return false;
+								}
+								else{
+						document.getElementById('pe').style.display = "none";
+					}
+
+
+                    var s=/^[a-zA-Z^\s]+$/;
+
+					var lo=document.getElementById("location").value;
+
+					if(lo=="")
+                {
+                    document.getElementById('loc').style.display = "block";
+
+                    document.getElementById('loc').innerHTML="**Please Enter  Location";
+                    return false;
+                }
+					if(lo!="" && s.test(lo)==false){
+
+						document.getElementById('loc').style.display = "block";
+						document.getElementById('loc').innerHTML = "Invalid Location";
+						return false;
+					}
+					else{
+						document.getElementById('loc').style.display = "none";
+
+					}
+					var ci=document.getElementById("city").value;
+
+					if(ci=="")
+                {
+                    document.getElementById('cit').style.display = "block";
+
+                    document.getElementById('cit').innerHTML="**Please Enter  District/City";
+                    return false;
+                }
+					if(ci!="" && s.test(ci)==false){
+
+						document.getElementById('cit').style.display = "block";
+						document.getElementById('cit').innerHTML = "Invalid District/City";
+						return false;
+					}
+					else{
+						document.getElementById('cit').style.display = "none";
+
+					}
+
+
+					 var st = document.getElementById("state").value;
+					if(st=="")
+                {
+                    document.getElementById('sta').style.display = "block";
+
+                    document.getElementById('sta').innerHTML="**Please Enter The State";
+                    return false;
+                }
+                else{
+						document.getElementById('sta').style.display = "none";
+
+					}
+
+
+					var i = document.getElementById("ad_title").value;
+					if(i=="")
+                {
+                    document.getElementById('at').style.display = "block";
+
+                    document.getElementById('at').innerHTML="**Please Enter Advertisment Title";
+                    return false;
+                }
+                else{
+						document.getElementById('at').style.display = "none";
+
+					}
+			    var j = document.getElementById("add_info").value;
+					if(j=="")
+                {
+                    document.getElementById('ai').style.display = "block";
+
+                    document.getElementById('ai').innerHTML="**Please Enter Additional Information";
+                    return false;
+                }
+                else{
+						document.getElementById('ai').style.display = "none";
+			            return true;
+
+					}
+
+				}
+			</script>
+
+            <!--====== Section 2 ======-->
+            <div class="u-s-p-b-60">
+
+                <!--====== Section Content ======-->
+                <div class="section__content">
+                    <div class="dash">
+                        <div class="container">
+                            <div class="row ">
+                                <div class="col-lg-9 col-md-12">
+                                    <div class="dash__box dash__box--shadow dash__box--radius dash__box--bg-white">
+                                        <div class="dash__pad-2">
+                                            <h1 class="dash__h1 u-s-m-b-14">Enter the details</h1>
+
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <form class="dash-edit-p" method="post" action="{% url 'details' %}"  enctype="multipart/form-data" onsubmit="return validate()">
+                                                        {% csrf_token %}
+                                                            <div class="gl-inline">
+                                                            <div class="u-s-m-b-30">
+
+                                                                <label class="gl-label" for="type">Full Name *</label>
+
+                                                                <input class="input-text input-text--primary-style" type="text" id="type" name="name" placeholder="Enter full name" onblur="return validate()" onKeyUp="return validate()">
+                                                            <span id="te" style="color: red;"></span>
+                                                            </div>
+
+
+                                                            <div class="u-s-m-b-30">
+
+                                                                       <label class="gl-label" for="furnish">Gender *</label>
+                                                                <select class="select-box select-box--primary-style" name="gender" id="furnish" data-bill="" onblur="return validate()" onKeyUp="return validate()">
+                                                    <option selected value="">Choose the Type</option>
+                                                    <option value="male">MALE</option>
+                                                    <option value="female">Female</option>
+                                                </select><span id="fh" style="color: red;"></span>
+
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="gl-inline">
+                                                            <div class="u-s-m-b-30">
+
+                                                                <label class="gl-label" for="dob">Date of Birth *</label>
+
+                                                                <input class="input-text input-text--primary-style" type="date" id="dob"  name="dob" placeholder="Enter date of birth" onblur="return validate()" onKeyUp="return validate()">
+                                                            </div>
+                                                            <div class="u-s-m-b-30">
+
+                                                                <label class="gl-label" for="age">Age *</label>
+
+                                                                <input class="input-text input-text--primary-style" type="text"  name="age" id="age" placeholder="Enter your age" onblur="return validate()" onKeyUp="return validate()">
+                                                                <span id="ag" style="color: red;"></span></div>
+
+                                                        </div>
+                                                         <div class="gl-inline">
+                                                         <div class="u-s-m-b-30">
+
+                                                <label class="gl-label" for="email">E-MAIL *</label>
+
+                                                <input class="input-text input-text--primary-style" type="email" name="email" id="email" placeholder="Enter E-mail"  onblur="return validate()" onKeyUp="return validate()"  >
+                                                <span id="el" style="color: red;"></span>
+
+                                            </div>
+                                                             <div class="u-s-m-b-30">
+
+                                                <label class="gl-label" for="tel">PHONE NUMBER *</label>
+
+                                                <input class="input-text input-text--primary-style" type="text" name="tel" id="tel" placeholder="Enter 10 digits" onblur="return validate()" onKeyUp="return validate()"  minlength="10" maxlength="10">
+                                                <span id="pe" style="color: red;"></span>
+
+                                            </div>
+                                                        </div>
+                                                         <div class="gl-inline">
+
+
+
+
+                                                        </div>
+                                                         <div class="gl-inline">
+                                                              <div class="u-s-m-b-30">
+
+                                                                <label class="gl-label" for="street">Address*</label>
+
+                                                                <input class="input-text input-text--primary-style" type="text" name="address" id="street" placeholder="Location/street" onblur="return validate()" onKeyUp="return validate()">
+                                                            <span id="st" style="color: red;"></span>
+                                                            </div>
+                                                                 <div class="u-s-m-b-30">
+        <label class="gl-label" for="acc_type">Account Type *</label>
+        <select class="select-box select-box--primary-style" name="acc_type" id="acc_type">
+            <option selected value="">Account Type</option>
+                        <option selected value="current account">current account</option>
+                        <option selected value="savings account">savings account</option>
+
+        </select>
+    </div>
+                                                         </div>
+
+<div class="gl-inline">
+    <div class="u-s-m-b-30">
+        <label class="gl-label" for="type">District *</label>
+        <select class="select-box select-box--primary-style" name="district" id="district">
+            <option selected value="">Select district</option>
+            <option value="Wayanad">Wayanad</option>
+            <option value="Kottayam">Kottayam</option>
+            <option value="Kozhikode">Kozhikode</option>
+            <option value="Thiruvananthapuram">Thiruvananthapuram</option>
+            <option value="Idukki">Idukki</option>
+            <option value="Thrissur">Thrissur</option>
+            <option value="Kannur">Kannur</option>
+            <option value="Palakkad">Palakkad</option>
+            <option value="Kollam">Kollam</option>
+            <option value="Pathanamthitta">Pathanamthitta</option>
+            <option value="Ernakulam">Ernakulam</option>
+            <option value="Alappuzha">Alappuzha</option>
+            <option value="Malappuram">Malappuram</option>
+            <option value="Kasaragod">Kasaragod</option>
+        </select>
+    </div>
+
+    <div class="u-s-m-b-30">
+        <label class="gl-label" for="type">Branch *</label>
+        <select class="select-box select-box--primary-style" name="branch" id="branch">
+        </select>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#district').on('change', function() {
+            var district = $(this).val();
+            if (district) {
+                $.ajax({
+                    url: '{% url "get_branches" %}',
+                    type: 'GET',
+                    data: {'district': district},
+                    dataType: 'json',
+                    success: function(data) {
+                        $('#branch').empty();
+                        $.each(data.branches, function(index, value) {
+                            $('#branch').append($('<option>').text(value).attr('value', value));
+                        });
+                    }
+                });
+            } else {
+                $('#branch').empty();
+                $('#branch').append($('<option>').text('Select branch').attr('value', ''));
+            }
+        });
+    });
+</script>
+
+
+
+
+                                                        <div class="gl-inline">
+                                                            <div class="u-s-m-b-30">
+ <label>
+        <input  type="checkbox" value="1" name="debit">
+        Debit card
+      </label>
+
+      <label >
+        <input type="checkbox" value="1" name="credit">
+        Credit card
+      </label>
+
+      <label >
+        <input type="checkbox" value="1" name="cheque">
+        Cheque book
+      </label>
+                                                            </div>
+
+
+
+                                                        </div>
+
+                                                        <button class="btn btn--e-brand-b-2" type="submit">SUBMIT</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--====== End - Section Content ======-->
+            </div>
+            <!--====== End - Section 2 ======-->
+        </div>
+
+        {% endblock %}

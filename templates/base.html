@@ -1,0 +1,407 @@
+{% load static %}
+<html class="no-js" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="{% static 'images/favicon.png' %}" rel="shortcut icon">
+    <title>Banking</title>
+
+    <!--====== Google Font ======-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
+
+    <!--====== Vendor Css ======-->
+    <link rel="stylesheet" href="{% static 'css/vendor.css' %}">
+
+    <!--====== Utility-Spacing ======-->
+    <link rel="stylesheet" href="{% static 'css/utility.css' %}">
+
+    <!--====== App ======-->
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+
+
+
+
+</head>
+<body class="config" id="js-scrollspy-trigger">
+    <div class="preloader is-active">
+        <div class="preloader__wrap">
+
+            <img class="preloader__img" src="{% static 'images/preloader.png' %}" alt=""></div>
+    </div>
+
+    <!--====== Main App ======-->
+    <div id="app">
+        <div class="fixed-list">
+
+        </div>
+
+        <!--====== Main Header ======-->
+        <header class="header--style-2">
+
+            <!--====== Nav 1 ======-->
+            <nav class="primary-nav-wrapper">
+                <div class="container">
+
+                    <!--====== Primary Nav ======-->
+                    <div class="primary-nav">
+
+                        <!--====== Main Logo ======-->
+
+                        <a class="main-logo" href="#">
+
+                            <img src="{% static 'images/logo/map_logo.png' %}"  style="width:45px;height:45px;" alt=""></a>
+                        <!--====== End - Main Logo ======-->
+
+
+
+
+
+
+
+<form class="main-form" action="#" method="get">
+    <label for="main-search"></label>
+    <div class="search-container">
+        <input class="input-text input-text--border-radius input-text--style-1"  style="color: white;" type="text" id="main-search" name="keyword" placeholder="Search" onkeyup="searchProducts(this.value)">
+        <button class="btn btn--icon fas fa-search main-search-button" type="submit"></button>
+    </div>
+    <div class="search-suggestions">
+        <ul id="search-suggestions"></ul>
+    </div>
+</form>
+
+<style>
+    .search-suggestions {
+        position: absolute;
+        top: 48px;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+        z-index: 999;
+        display: none;
+    }
+
+    .search-suggestions.active {
+        display: block;
+    }
+
+    #search-suggestions li {
+        list-style-type: none;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    #search-suggestions li:hover {
+        background-color: #f2f2f2;
+    }
+</style>
+
+<script>
+    function searchProducts(keyword) {
+        $.ajax({
+            url: "/search-suggestions/",
+            data: {
+                'keyword': keyword
+            },
+            dataType: 'json',
+            success: function (data) {
+                var suggestions = "";
+                $.each(data, function (i, suggestion) {
+                    suggestions += "<li><a href='" + suggestion.url + "'>" + suggestion.name + "</a></li>";
+                });
+                $('#search-suggestions').html(suggestions);
+                $('.search-suggestions').addClass('active');
+            },
+            error: function() {
+                $('.search-suggestions').removeClass('active');
+            }
+        });
+    }
+
+    $(document).mouseup(function(e) {
+        var container = $('.search-container');
+        if (!container.is(e.target) && container.has(e.target).length === 0) {
+            $('.search-suggestions').removeClass('active');
+        }
+    });
+
+    $('#main-search').focus(function() {
+        if ($('#search-suggestions li').length) {
+            $('.search-suggestions').addClass('active');
+        }
+    });
+</script>
+                        <!--====== End - Search Form ======-->
+
+
+                        <!--====== Dropdown Main plugin ======-->
+                        <div class="menu-init" id="navigation">
+
+                            <button class="btn btn--icon toggle-button toggle-button--white fas fa-cogs" type="button"></button>
+
+                            <!--====== Menu ======-->
+                            <div class="ah-lg-mode">
+
+                                <span class="ah-close">✕ Close</span>
+
+                            </div>
+                            <!--====== End - Menu ======-->
+                        </div>
+                        <!--====== End - Dropdown Main plugin ======-->
+                    </div>
+                    <!--====== End - Primary Nav ======-->
+                </div>
+            </nav>
+            <!--====== End - Nav 1 ======-->
+
+
+            <!--====== Nav 2 ======-->
+            <nav class="secondary-nav-wrapper">
+                <div class="container">
+
+                    <!--====== Secondary Nav ======-->
+                    <div class="secondary-nav">
+
+                        <!--====== Dropdown Main plugin ======-->
+                        <div class="menu-init" id="navigation1">
+
+                            <button class="btn btn--icon toggle-mega-text toggle-button" type="button">M</button>
+
+                            <!--====== Menu ======-->
+                            <div class="ah-lg-mode">
+
+                                <span class="ah-close">✕ Close</span>
+
+                                <!--====== List ======-->
+                                <ul class="ah-list">
+                                    <li class="has-dropdown">
+
+                                        <span class="mega-text">C</span>
+
+                                        <!--====== Mega Menu ======-->
+
+                                        <span class="js-menu-toggle"></span>
+                                        <div class="mega-menu">
+                                            <div class="mega-menu-wrap">
+                                                <div class="mega-menu-list">
+                                                    <ul>
+
+                                                        <li class="js-active">
+
+                                                            <a href="#"><i class="fas fa-tv u-s-m-r-6"></i>
+
+                                                                <span></span></a>
+
+                                                            <span class="js-menu-toggle js-toggle-mark"></span></li>
+
+                                                    </ul>
+                                                </div>
+
+
+<link href="{% static 'css/custom.css' %}" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                                            </div>
+                                        </div>
+                                        <!--====== End - Mega Menu ======-->
+                                    </li>
+                                </ul>
+                                <!--====== End - List ======-->
+                            </div>
+                            <!--====== End - Menu ======-->
+                        </div>
+                        <!--====== End - Dropdown Main plugin ======-->
+
+
+                        <!--====== Dropdown Main plugin ======-->
+                        <div class="menu-init" id="navigation2">
+
+                            <button class="btn btn--icon toggle-button toggle-button--white fas fa-cog" type="button"></button>
+
+                            <!--====== Menu ======-->
+                            <div class="ah-lg-mode">
+
+                                <span class="ah-close">✕ Close</span>
+
+                                <!--====== List ======-->
+                                <ul class="ah-list ah-list--design2 ah-list--link-color-white">
+                                    <li>
+
+                                        <a href="{% url 'home' %}">HOME</a></li>
+
+                                     <li class="has-dropdown has-dropdown">
+
+                                                <a>Branches<i class="fas fa-angle-down i-state-right u-s-m-l-6"></i></a>
+
+                                                <!--====== Dropdown ======-->
+
+                                                <span class="js-menu-toggle"></span>
+                                                <ul style="width:200px">
+                                                    <li>
+
+                                                        <a href="https://en.wikipedia.org/wiki/Ernakulam">Ernakulam</a></li>
+                                                    <li>
+
+                                                        <a href="https://en.wikipedia.org/wiki/Kottayam">Kottayam</a></li>
+                                                    <li>
+
+                                                        <a href="https://en.wikipedia.org/wiki/Kollam">Kollam</a></li>
+                                                       <li>
+
+                                                        <a href="https://en.wikipedia.org/wiki/Wayanad_district">Wayanad</a></li>
+                                                       <li>
+
+                                                        <a href="https://en.wikipedia.org/wiki/Thrissur">Thrissur</a></li>
+                                                </ul>
+                                                <!--====== End - Dropdown ======-->
+                                            </li>
+
+                                    {% if user.is_authenticated %}
+
+                                      <li>
+
+                                        <a>Welcome {{user.username}}</a></li>
+
+                                      <li>
+
+                                        <a href="{% url 'logout' %}">LOG OUT</a></li>
+
+                                    {% else %}
+                                    <li>
+
+                                        <a href="{% url 'login' %}">LOGIN</a></li>
+                                           <li>
+
+                                        <a href="{% url 'register' %}">REGISTER</a></li>
+                                    {% endif %}
+                                </ul>
+                                <!--====== End - List ======-->
+                            </div>
+                            <!--====== End - Menu ======-->
+                        </div>
+                        <!--====== End - Dropdown Main plugin ======-->
+
+
+                        <!--====== Dropdown Main plugin ======-->
+                        <div class="menu-init" id="navigation3">
+
+<!--                            <button class="btn btn&#45;&#45;icon toggle-button toggle-button&#45;&#45;white fas fa-shopping-bag toggle-button-shop" type="button"></button>-->
+
+<!--                            <span class="total-item-round">2</span>-->
+
+                            <!--====== Menu ======-->
+<!--                            <div class="ah-lg-mode">-->
+
+<!--                                <span class="ah-close">✕ Close</span>-->
+
+<!--                                 &lt;!&ndash;====== List ======&ndash;&gt;-->
+<!--                                <ul class="ah-list ah-list&#45;&#45;design1 ah-list&#45;&#45;link-color-white">-->
+<!--&lt;!&ndash;                                    <li>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                                        <a href="index-2.html"><i class="fas fa-home u-c-brand"></i></a>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    </li>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <li>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                                        <a href="wishlist.html"><i class="far fa-heart"></i></a></li>&ndash;&gt;-->
+<!--                                    <li class="has-dropdown">-->
+<!--                                      <a href="#" class="mini-cart-shop-link"><i class="far fa-envelope"></i>-->
+<!--&lt;!&ndash;                                        <span class="total-item-round">2</span>&ndash;&gt;-->
+<!--                                          </a>-->
+<!--                                        </li>-->
+
+
+<!--                                        &lt;!&ndash;====== Dropdown ======&ndash;&gt;-->
+<!--                                        <span class="js-menu-toggle"></span>-->
+
+<!--                                    </li>-->
+<!--                                </ul>-->
+<!--                                &lt;!&ndash;====== End - List ======&ndash;&gt;-->
+<!--                            </div>-->
+                            <!--====== End - Menu ======-->
+                        </div>
+                        <!--====== End - Dropdown Main plugin ======-->
+                    </div>
+                    <!--====== End - Secondary Nav ======-->
+                </div>
+            </nav>
+            <!--====== End - Nav 2 ======-->
+        </header>
+        <!--====== End - Main Header ======-->
+
+
+        {% block content %}
+
+
+        {% endblock %}
+         <!--====== Main Footer ======-->
+        <footer>
+            <div class="outer-footer">
+                <div class="container">
+                </div>
+            </div>
+
+            <div class="lower-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="lower-footer__content">
+                                <div class="lower-footer__copyright">
+
+                                    <span>Copyright © 2022</span>
+
+                                    <a href="#">Banking APP</a>
+
+                                    <span>All Right Reserved</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!--====== Modal Section ======-->
+
+    </div>
+    <!--====== End - Main App ======-->
+
+
+    <!--====== Google Analytics: change UA-XXXXX-Y to be your site's ID ======-->
+    <script>
+        window.ga = function() {
+            ga.q.push(arguments)
+        };
+        ga.q = [];
+        ga.l = +new Date;
+        ga('create', 'UA-XXXXX-Y', 'auto');
+        ga('send', 'pageview')
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js' %}" async defer></script>
+
+    <!--====== Vendor Js ======-->
+    <script src="{% static 'js/vendor.js' %}"></script>
+
+    <!--====== jQuery Shopnav plugin ======-->
+    <script src="{% static 'js/jquery.shopnav.js' %}"></script>
+
+    <!--====== App ======-->
+    <script src="{% static 'js/app.js' %}"></script>
+
+    <!--====== Noscript ======-->
+    <noscript>
+        <div class="app-setting">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="app-setting__wrap">
+                            <h1 class="app-setting__h1"></h1>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </noscript>
+</body>
+</html>
